@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milca & Breno</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+    <link rel="icon" href="/assets/love_heart.ico" type="image/x-icon">
+
+    <style>
+        @font-face {
+            font-family: 'Italianno';
+            src: url('/assets/fonts/Italianno-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+</head>
+
+<body
+    class="flex justify-center items-center min-h-screen bg-gradient-to-b from-[#F6D1B1] to-[#E9A78E] text-[#4F3B31] text-center font-serif p-6">
+
+    <img src="/assets/images/left-top-flowers.png" alt="Top flowers" class="h-48 absolute left-0 top-0 opacity-75">
+    <img src="/assets/images/right-bottom-flowers.png" alt="Bottom flowers"
+        class="h-48 absolute right-0 bottom-0 opacity-75">
+
+    <div class="w-full max-w-lg p-3 bg-[#FFF1E0] rounded-xl shadow-lg shadow-orange-600 z-10">
+
+        <h1 class="text-6xl text-[#D85C43] font-[Italianno]">Milca & Breno</h1>
+
+        <div id="pixqrcode" class="w-full flex justify-center">
+            <img src="/assets/images/love.png" alt="QR Code Pix" class="w-48 mb-3">
+        </div>
+
+        <hr
+            class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-50" />
+
+        <p class="text-lg leading-relaxed text-[#7D4B3A] mt-3">
+            Seu apoio é nosso maior presente 🧡
+        </p>
+
+        <div id="pixqrcode" class="w-full flex justify-center">
+            <img src="/assets/images/qrcode.jpeg" alt="QR Code Pix"
+                class="my-3 w-40 h-40 mx-auto rounded-xl ring-2 ring-orange-500 shadow-lg shadow-orange-500">
+        </div>
+
+        <a id="copy-code"
+            class="max-w-[240px] mt-3 px-4 py-2 bg-orange-600 text-white font-semibold hover:shadow-sm rounded-full hover:shadow-orange-800 transition flex items-center justify-center gap-2 mx-auto cursor-pointer"
+            data-clipboard-text="00020126510014BR.GOV.BCB.PIX0111047552812370214Felicidades S25204000053039865802BR5919Breno Aires da Hora6009SAO PAULO62140510UbO888aama63044893">
+            <i data-lucide="clipboard" class="w-5 h-5"></i> <span>Copiar código PIX</span>
+        </a>
+
+        <p class="text-xs leading-relaxed text-[#7D4B3A] mt-3">
+            Escaneie ou copie o QR Code para contribuir com este momento de amor e gratidão.
+        </p>
+    </div>
+    <script>
+        lucide.createIcons();
+
+        var clipboard = new ClipboardJS('#copy-code');
+
+        clipboard.on('success', function (e) {
+            var button = document.getElementById("copy-code");
+            button.innerHTML = `<i data-lucide="check" class="w-5 h-5"></i> <span>Copiado!</span>`;
+
+            lucide.createIcons();
+
+            setTimeout(() => {
+                button.innerHTML = `<i data-lucide="clipboard" class="w-5 h-5"></i> <span>Copiar código PIX</span>`;
+
+                lucide.createIcons();
+            }, 2000);
+        });
+
+        clipboard.on('error', function (e) {
+            alert('Erro ao copiar o código. Leia o QR Code!');
+        });
+    </script>
+
+</body>
+
+</html>
