@@ -38,7 +38,7 @@
             class="h-px border-t-0 bg-transparent bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-50" />
 
         <p class="text-lg leading-relaxed text-[#7D4B3A] mt-3">
-            Seu apoio é nosso maior presente 🧡
+            Seu apoio é nosso maior presente <span class="animate-bounce">🧡</span>
         </p>
 
         <div id="pixqrcode" class="w-full flex justify-center">
@@ -47,7 +47,7 @@
         </div>
 
         <a id="copy-code"
-            class="max-w-[240px] mt-3 px-4 py-2 bg-orange-600 text-white font-semibold hover:shadow-sm rounded-full hover:shadow-orange-800 transition flex items-center justify-center gap-2 mx-auto cursor-pointer"
+            class="max-w-[240px] mt-3 px-4 py-2 bg-orange-600 hover:bg-orange-400 text-white font-semibold hover:shadow-sm rounded-full hover:shadow-orange-800 transition flex items-center justify-center gap-2 mx-auto cursor-pointer"
             data-clipboard-text="00020126510014BR.GOV.BCB.PIX0111047552812370214Felicidades S25204000053039865802BR5919Breno Aires da Hora6009SAO PAULO62140510UbO888aama63044893">
             <span>📋 Copiar código PIX</span>
         </a>
@@ -61,12 +61,14 @@
 
         clipboard.on('success', function (e) {
             var button = document.getElementById("copy-code");
-            
+
+            button.classList.replace("bg-orange-600", "bg-orange-400");
             button.innerHTML = `<span>Código Copiado! 🥰</span>`;
 
             setTimeout(() => {
+                button.classList.replace("bg-orange-400", "bg-orange-600");
                 button.innerHTML = `<span>📋 Copiar código PIX</span>`;
-            }, 2000);
+            }, 5000);
         });
 
         clipboard.on('error', function (e) {
